@@ -51,8 +51,8 @@ export default function ServicesTimelineSection() {
                     </p>
                     <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
                         <Image
-                            src="/hero-mockup.png"
-                            alt="Web Apps Mockup"
+                            src="/Dashboard.webp"
+                            alt="Web Apps Dashboard"
                             fill
                             className="object-cover object-top hover:scale-105 transition-transform duration-500"
                         />
@@ -88,8 +88,8 @@ export default function ServicesTimelineSection() {
                     </p>
                     <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
                         <Image
-                            src="/hero-mockup.png"
-                            alt="Automations Mockup"
+                            src="/Automations.webp"
+                            alt="Automations Dashboard"
                             fill
                             className="object-cover object-top hover:scale-105 transition-transform duration-500"
                         />
