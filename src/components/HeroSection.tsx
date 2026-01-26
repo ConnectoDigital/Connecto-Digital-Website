@@ -38,7 +38,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative bg-black overflow-hidden flex flex-col pt-36 md:pt-36">
+        <section className="relative bg-black overflow-hidden flex flex-col pt-28 md:pt-36">
             {/* Background Gradients */}
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
@@ -50,7 +50,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-12 mt-8 backdrop-blur-md"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-12 mt-16 backdrop-blur-md"
                         >
                             <span className="flex h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#FF541F]" />
                             <span className="text-sm font-medium text-white/80 tracking-wide">Trusted Partner</span>
