@@ -97,7 +97,7 @@ export default function HeroSection() {
             >
                 <div className="w-full h-full relative bg-black rounded-3xl overflow-hidden">
                     <Image
-                        src="/boat-mockup.png"
+                        src="/axv_mobile.png"
                         alt="Website Mockup"
                         fill
                         priority
