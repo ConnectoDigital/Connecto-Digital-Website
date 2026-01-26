@@ -17,7 +17,8 @@ export default function ServicesTimelineSection() {
                             src="/boat-mockup.png"
                             alt="Web Development Mockup"
                             fill
-                            className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            className="object-cover object-top"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -54,7 +55,8 @@ export default function ServicesTimelineSection() {
                             src="/Dashboard.webp"
                             alt="Web Apps Dashboard"
                             fill
-                            className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            className="object-cover object-top"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -91,7 +93,8 @@ export default function ServicesTimelineSection() {
                             src="/Automations.webp"
                             alt="Automations Dashboard"
                             fill
-                            className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                            className="object-cover object-top"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -83,27 +83,17 @@ export default function RadialOrbitalTimeline({
   };
 
   useEffect(() => {
-    let animationId: number;
-    let lastTime = 0;
-
-    const animate = (currentTime: number) => {
-      if (autoRotate && viewMode === "orbital") {
-        if (lastTime !== 0) {
-          const delta = currentTime - lastTime;
-          setRotationAngle((prev) => (prev + delta * 0.02) % 360);
-        }
-        lastTime = currentTime;
-        animationId = requestAnimationFrame(animate);
-      }
-    };
+    let rotationTimer: NodeJS.Timeout;
 
     if (autoRotate && viewMode === "orbital") {
-      animationId = requestAnimationFrame(animate);
+      rotationTimer = setInterval(() => {
+        setRotationAngle((prev) => (prev + 0.5) % 360);
+      }, 100);
     }
 
     return () => {
-      if (animationId) {
-        cancelAnimationFrame(animationId);
+      if (rotationTimer) {
+        clearInterval(rotationTimer);
       }
     };
   }, [autoRotate, viewMode]);
@@ -174,13 +164,8 @@ export default function RadialOrbitalTimeline({
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
-          <div className="absolute w-16 h-16 rounded-full bg-gradient-to-r from-primary via-orange-300 to-primary animate-pulse flex items-center justify-center z-10">
-            <div className="absolute w-20 h-20 rounded-full border border-primary/20 animate-ping opacity-70"></div>
-            <div
-              className="absolute w-24 h-24 rounded-full border border-primary/10 animate-ping opacity-50"
-              style={{ animationDelay: "0.5s" }}
-            ></div>
-            <div className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md"></div>
+          <div className="absolute w-16 h-16 rounded-full bg-gradient-to-r from-primary via-orange-300 to-primary flex items-center justify-center z-10">
+            <div className="w-8 h-8 rounded-full bg-white/80"></div>
           </div>
 
           <div className="absolute w-96 h-96 rounded-full border border-white/10"></div>

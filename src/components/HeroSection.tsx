@@ -100,7 +100,8 @@ export default function HeroSection() {
                         src="/boat-mockup.png"
                         alt="Website Mockup"
                         fill
-                        className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                        priority
+                        className="object-cover object-top"
                     />
                 </div>
             </ContainerScroll>

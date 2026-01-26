@@ -40,7 +40,7 @@ export default function PortfolioSection() {
                     {projects.map((p) => (
                         <div key={p.title} className="group">
                             <div className="relative aspect-video bg-white/5 rounded-xl overflow-hidden mb-4">
-                                <img src={p.image} alt={p.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                <img src={p.image} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-1">{p.title}</h3>
                             <p className="text-white/50 text-sm mb-3">{p.description}</p>
