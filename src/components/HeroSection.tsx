@@ -97,7 +97,7 @@ export default function HeroSection() {
             >
                 <div className="w-full h-full relative bg-black rounded-3xl overflow-hidden">
                     <Image
-                        src="/hero-mockup.png"
+                        src="/boat-mockup.png"
                         alt="Website Mockup"
                         fill
                         className="object-cover object-top hover:scale-105 transition-transform duration-500"
