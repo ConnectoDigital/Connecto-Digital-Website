@@ -35,7 +35,28 @@ export default function PortfolioSection() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white">Featured Projects</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Mobile: Horizontal scroll carousel */}
+                <div className="md:hidden flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 scrollbar-hide">
+                    {projects.map((p) => (
+                        <div key={p.title} className="flex-shrink-0 w-[85vw] snap-center">
+                            <div className="relative aspect-video bg-white/5 rounded-xl overflow-hidden mb-4">
+                                <img src={p.image} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-1">{p.title}</h3>
+                            <p className="text-white/50 text-sm mb-3">{p.description}</p>
+                            <div className="flex flex-wrap gap-2">
+                                {p.tags.map((tag, i) => (
+                                    <Badge key={i} variant="outline" className="text-white/70 border-white/20 text-xs px-3 py-1 font-mono">
+                                        {tag}
+                                    </Badge>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Desktop: Grid layout */}
+                <div className="hidden md:grid md:grid-cols-2 gap-8">
                     {projects.map((p) => (
                         <div key={p.title} className="group">
                             <div className="relative aspect-video bg-white/5 rounded-xl overflow-hidden mb-4">

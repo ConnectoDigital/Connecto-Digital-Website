@@ -50,7 +50,7 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-12 mt-16 backdrop-blur-md"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-12 mt-24 md:mt-16 backdrop-blur-md"
                         >
                             <span className="flex h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#FF541F]" />
                             <span className="text-sm font-medium text-white/80 tracking-wide">Trusted Partner</span>
@@ -97,18 +97,11 @@ export default function HeroSection() {
             >
                 <div className="w-full h-full relative bg-black rounded-3xl overflow-hidden">
                     <Image
-                        src="/axv_mobile.png"
-                        alt="Website Mockup"
-                        fill
-                        priority
-                        className="object-cover object-top md:hidden"
-                    />
-                    <Image
                         src="/boat-mockup.png"
                         alt="Website Mockup"
                         fill
                         priority
-                        className="object-cover object-top hidden md:block"
+                        className="object-contain"
                     />
                 </div>
             </ContainerScroll>

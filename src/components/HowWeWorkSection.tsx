@@ -62,12 +62,36 @@ export default function HowWeWorkSection() {
     ];
 
     return (
-        <section className="h-[60vh] md:h-screen bg-black overflow-hidden relative z-10" id="how-we-work">
-            <div className="absolute top-8 left-0 w-full text-center z-20 pointer-events-none">
+        <section className="bg-black overflow-hidden relative z-10 py-16" id="how-we-work">
+            <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">How We Work</h2>
                 <p className="text-white/60">Our streamlined approach to delivering exceptional results</p>
             </div>
-            <RadialOrbitalTimeline timelineData={timelineData} />
+
+            {/* Mobile: Simple list */}
+            <div className="md:hidden container mx-auto px-4">
+                <div className="space-y-6">
+                    {timelineData.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                            <div key={item.id} className="flex items-start gap-4 p-4 rounded-lg border border-white/10 bg-white/5">
+                                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                                    <Icon size={20} className="text-primary" />
+                                </div>
+                                <div>
+                                    <h3 className="text-white font-bold mb-1">{item.title}</h3>
+                                    <p className="text-white/60 text-sm">{item.content}</p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            {/* Desktop: Orbital animation */}
+            <div className="hidden md:block h-screen">
+                <RadialOrbitalTimeline timelineData={timelineData} />
+            </div>
         </section>
     );
 }

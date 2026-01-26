@@ -8,13 +8,13 @@ export default function ServicesTimelineSection() {
             title: "Web Development",
             content: (
                 <div>
-                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
+                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative aspect-video w-full">
                         <Image
                             src="/boat-mockup.png"
                             alt="Web Development Mockup"
                             fill
                             loading="lazy"
-                            className="object-cover object-top"
+                            className="object-contain"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -42,13 +42,13 @@ export default function ServicesTimelineSection() {
             title: "Web Apps",
             content: (
                 <div>
-                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
+                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative aspect-video w-full">
                         <Image
                             src="/Dashboard.webp"
                             alt="Web Apps Dashboard"
                             fill
                             loading="lazy"
-                            className="object-cover object-top"
+                            className="object-contain"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -76,13 +76,13 @@ export default function ServicesTimelineSection() {
             title: "Automations",
             content: (
                 <div>
-                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
+                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative aspect-video w-full">
                         <Image
                             src="/Automations.webp"
                             alt="Automations Dashboard"
                             fill
                             loading="lazy"
-                            className="object-cover object-top"
+                            className="object-contain"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
