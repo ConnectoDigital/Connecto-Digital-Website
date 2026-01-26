@@ -101,7 +101,14 @@ export default function HeroSection() {
                         alt="Website Mockup"
                         fill
                         priority
-                        className="object-cover object-top"
+                        className="object-cover object-top md:hidden"
+                    />
+                    <Image
+                        src="/boat-mockup.png"
+                        alt="Website Mockup"
+                        fill
+                        priority
+                        className="object-cover object-top hidden md:block"
                     />
                 </div>
             </ContainerScroll>
