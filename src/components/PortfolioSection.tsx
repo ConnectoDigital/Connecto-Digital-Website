@@ -4,28 +4,28 @@ export default function PortfolioSection() {
     const categories = ["Web Development", "Mobile Applications", "AI Integration", "Custom Solutions", "Enterprise Systems"];
     const projects = [
         {
-            title: "E-Commerce Platform",
+            title: "Private Boat Tours Website",
             category: "Web Development",
             image: "/boat-mockup.png",
-            description: "A high-conversion online store with seamless checkout."
+            description: "Booking platform for private boat tours in Aruba."
         },
         {
-            title: "SaaS Dashboard",
-            category: "Web App",
-            image: "/boat-mockup.png",
-            description: "Real-time analytics dashboard for a logistics company."
+            title: "Logistic Company Web App",
+            category: "Web App / Automation",
+            image: "/egaroshi-mockup.png",
+            description: "International shipping and logistics management platform."
         },
         {
-            title: "Real Estate Portal",
+            title: "Psychologist Booking Website",
             category: "Web Development",
-            image: "/boat-mockup.png",
-            description: "Property listing platform with advanced filtering."
+            image: "/brainy-mockup.png",
+            description: "Professional booking system for psychological assessments."
         },
         {
-            title: "CRM Integration",
-            category: "Automation",
-            image: "/boat-mockup.png",
-            description: "Automated lead flow from website to CRM."
+            title: "Car Wash Booking System",
+            category: "Web App / Automation",
+            image: "/roadready-mockup.png",
+            description: "Booking and payment system for mobile car wash services."
         }
     ];
 

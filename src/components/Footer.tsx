@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="bg-black border-t border-white/10 py-16">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                     {/* About Column */}
                     <div className="space-y-4">
                         <h3 className="text-lg font-bold text-white">Connecto Digital</h3>
@@ -14,36 +14,13 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Useful Links */}
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-bold text-white">Useful Links</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">About</Link></li>
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Services</Link></li>
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Team</Link></li>
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Prices</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Help */}
-                    <div className="space-y-4">
-                        <h3 className="text-lg font-bold text-white">Help</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Customer Support</Link></li>
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Terms & Conditions</Link></li>
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="#" className="text-sm text-white/60 hover:text-primary transition-colors">Contact Us</Link></li>
-                        </ul>
-                    </div>
-
                     {/* Connect With Us */}
                     <div className="space-y-4">
                         <h3 className="text-lg font-bold text-white">Connect With Us</h3>
                         <address className="not-italic text-sm text-white/60 space-y-2">
-                            <p>27 Division St, New York,</p>
-                            <p>NY 10002, USA</p>
-                            <p className="text-white hover:text-primary transition-colors cursor-pointer">+123 324 2653</p>
-                            <p className="text-white hover:text-primary transition-colors cursor-pointer">username@mail.com</p>
+                            <p>Aruba</p>
+                            <Link href="https://wa.me/2975629582" target="_blank" className="block text-white hover:text-primary transition-colors cursor-pointer">+297 562 9582</Link>
+                            <p className="text-white hover:text-primary transition-colors cursor-pointer">info@connectodigital.com</p>
                         </address>
                         <div className="flex items-center gap-4 pt-2">
                             <Link href="#" className="text-white/60 hover:text-primary transition-colors"><Facebook size={20} /></Link>

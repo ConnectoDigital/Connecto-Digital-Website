@@ -90,12 +90,16 @@ export default function HeroSection() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
                         >
-                            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg shadow-[0_0_20px_rgba(255,84,31,0.3)] hover:shadow-[0_0_30px_rgba(255,84,31,0.5)] transition-all">
-                                Start Project <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                            <Button size="lg" variant="ghost" className="text-white hover:bg-white/5 rounded-full px-8 h-14 text-lg">
-                                View Portfolio
-                            </Button>
+                            <a href="https://wa.me/2975629582" target="_blank" rel="noopener noreferrer">
+                                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg shadow-[0_0_20px_rgba(255,84,31,0.3)] hover:shadow-[0_0_30px_rgba(255,84,31,0.5)] transition-all">
+                                    Start Project <ArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </a>
+                            <a href="#portfolio">
+                                <Button size="lg" variant="ghost" className="text-white hover:bg-white/5 rounded-full px-8 h-14 text-lg">
+                                    View Portfolio
+                                </Button>
+                            </a>
                         </motion.div>
                     </div>
                 }

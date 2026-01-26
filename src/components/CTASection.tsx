@@ -10,9 +10,11 @@ export default function CTASection() {
                 <p className="text-xl text-white/60 mb-10 max-w-2xl mx-auto">
                     Whether you're a freelancer, a team, or a growing agency—our tools adapt to your workflow. Design faster. Deliver better.
                 </p>
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white h-14 px-8 text-lg rounded-full">
-                    Get Started <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                <a href="https://wa.me/2975629582" target="_blank" rel="noopener noreferrer">
+                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white h-14 px-8 text-lg rounded-full">
+                        Get Started <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                </a>
             </div>
         </section>
     );
