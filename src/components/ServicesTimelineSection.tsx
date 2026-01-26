@@ -8,10 +8,6 @@ export default function ServicesTimelineSection() {
             title: "Web Development",
             content: (
                 <div>
-                    <p className="text-neutral-300 text-lg md:text-xl font-normal mb-8">
-                        We build high-performance, pixel-perfect websites that leave a lasting impression.
-                        From landing pages to complex enterprise platforms, our code is clean, scalable, and optimized for SEO.
-                    </p>
                     <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
                         <Image
                             src="/boat-mockup.png"
@@ -46,10 +42,6 @@ export default function ServicesTimelineSection() {
             title: "Web Apps",
             content: (
                 <div>
-                    <p className="text-neutral-300 text-lg md:text-xl font-normal mb-8">
-                        Transform your business logic into powerful, interactive web applications.
-                        We create SaaS platforms, dashboards, and internal tools that streamline your operations.
-                    </p>
                     <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
                         <Image
                             src="/Dashboard.webp"
@@ -84,10 +76,6 @@ export default function ServicesTimelineSection() {
             title: "Automations",
             content: (
                 <div>
-                    <p className="text-neutral-300 text-lg md:text-xl font-normal mb-8">
-                        Stop wasting time on repetitive tasks. We automate your workflows to save time and reduce errors.
-                        Connect your favorite tools and let the systems work for you.
-                    </p>
                     <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
                         <Image
                             src="/Automations.webp"
