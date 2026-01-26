@@ -14,7 +14,7 @@ export default function ServicesTimelineSection() {
                     </p>
                     <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative h-64 w-full">
                         <Image
-                            src="/hero-mockup.png"
+                            src="/boat-mockup.png"
                             alt="Web Development Mockup"
                             fill
                             className="object-cover object-top hover:scale-105 transition-transform duration-500"
