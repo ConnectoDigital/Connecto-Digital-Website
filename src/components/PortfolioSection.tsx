@@ -32,8 +32,7 @@ export default function PortfolioSection() {
         <section className="py-16 bg-black mt-24" id="portfolio">
             <div className="container mx-auto px-4">
                 <div className="mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
-                    <p className="text-white/50 text-sm">Selected Work <span className="text-white">2016—2025</span></p>
+                    <h2 className="text-3xl md:text-5xl font-bold text-white">Featured Projects</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
