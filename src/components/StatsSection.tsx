@@ -1,8 +1,7 @@
 export default function StatsSection() {
     const stats = [
-        { label: "Clients", value: "120K+" },
-        { label: "Projects", value: "150+" },
-        { label: "5-Star Reviews", value: "32K+" },
+        { label: "Clients", value: "75+" },
+        { label: "Projects", value: "85+" },
     ];
 
     return (

@@ -33,7 +33,7 @@ export default function Header() {
 
                 <a href="https://wa.me/2975629582" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 py-2 transition-all">
-                        Book A Call <span className="ml-1">↗</span>
+                        Book A Call
                     </Button>
                 </a>
             </div>

@@ -21,19 +21,10 @@ const headlines = [
         content: (
             <>
                 Web Apps That<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">Automate Processes</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">Automate Process</span>
             </>
         )
     },
-    {
-        id: 3,
-        content: (
-            <>
-                Automations That<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">Get More Done</span>
-            </>
-        )
-    }
 ];
 
 export default function HeroSection() {
@@ -47,7 +38,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section className="relative bg-black overflow-hidden flex flex-col pt-32 md:pt-36">
+        <section className="relative bg-black overflow-hidden flex flex-col pt-36 md:pt-36">
             {/* Background Gradients */}
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
             <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
