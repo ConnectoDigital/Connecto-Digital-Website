@@ -62,7 +62,7 @@ export default function HowWeWorkSection() {
     ];
 
     return (
-        <section className="h-[70vh] md:h-screen bg-black overflow-hidden relative" id="how-we-work">
+        <section className="h-[60vh] md:h-screen bg-black overflow-hidden relative z-10" id="how-we-work">
             <div className="absolute top-8 left-0 w-full text-center z-20 pointer-events-none">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">How We Work</h2>
                 <p className="text-white/60">Our streamlined approach to delivering exceptional results</p>

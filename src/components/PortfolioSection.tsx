@@ -29,7 +29,7 @@ export default function PortfolioSection() {
     ];
 
     return (
-        <section className="py-16 bg-black mt-24" id="portfolio">
+        <section className="py-16 bg-black relative z-20" id="portfolio">
             <div className="container mx-auto px-4">
                 <div className="mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold text-white">Featured Projects</h2>
