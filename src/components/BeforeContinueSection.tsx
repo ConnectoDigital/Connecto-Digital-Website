@@ -18,14 +18,14 @@ export default function BeforeContinueSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.6 }}
-                        className="text-left"
+                        className="text-center lg:text-left"
                     >
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">
                                 Your Development Partner
                             </span>
                         </h2>
-                        <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-lg">
+                        <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-lg mx-auto lg:mx-0">
                             We are changing how companies operate in The Caribbean & LATAM using the latest technologies
                         </p>
                     </motion.div>
