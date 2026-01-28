@@ -96,12 +96,21 @@ export default function HeroSection() {
                 }
             >
                 <div className="w-full h-full relative rounded-3xl overflow-hidden">
+                    {/* Mobile image */}
+                    <Image
+                        src="/crewai.png"
+                        alt="AI Automation Agent"
+                        fill
+                        priority
+                        className="object-contain md:hidden"
+                    />
+                    {/* Desktop image */}
                     <Image
                         src="/automationagent.jpeg"
                         alt="AI Automation Agent"
                         fill
                         priority
-                        className="object-contain"
+                        className="object-contain hidden md:block"
                     />
                 </div>
             </ContainerScroll>
