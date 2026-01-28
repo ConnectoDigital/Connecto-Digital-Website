@@ -11,7 +11,7 @@ const headlines = [
         id: 1,
         content: (
             <>
-                Web Development<br />
+                Web Design<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">That Drive Business</span>
             </>
         )
@@ -50,13 +50,13 @@ export default function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-12 mt-24 md:mt-16 backdrop-blur-md"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 md:mb-12 mt-8 md:mt-16 backdrop-blur-md"
                         >
                             <span className="flex h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#FF541F]" />
                             <span className="text-sm font-medium text-white/80 tracking-wide">Trusted Partner</span>
                         </motion.div>
 
-                        <div className="h-[280px] flex items-center justify-center mb-8 relative w-full">
+                        <div className="h-[160px] md:h-[280px] flex items-center justify-center mb-4 md:mb-8 relative w-full">
                             <AnimatePresence mode="wait">
                                 <motion.h1
                                     key={index}
@@ -64,19 +64,19 @@ export default function HeroSection() {
                                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                                     exit={{ opacity: 0, y: -30, filter: "blur(10px)" }}
                                     transition={{ duration: 0.6, ease: "easeOut" }}
-                                    className="text-5xl md:text-8xl font-bold text-white tracking-tight leading-none text-center absolute"
+                                    className="text-4xl md:text-8xl font-bold text-white tracking-tight leading-tight md:leading-none text-center absolute"
                                 >
                                     {headlines[index].content}
                                 </motion.h1>
                             </AnimatePresence>
                         </div>
 
-                        <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/60 mb-10 leading-relaxed">
-                            We're a team of experts who've been delivering digital success for more than a decade. Automate intelligence, accelerate growth.
+                        <p className="max-w-2xl mx-auto text-base md:text-xl text-white/60 mb-6 md:mb-10 leading-relaxed px-4 md:px-0">
+                            We're a team of experts who've been delivering digital products for companies in the Caribbean and LATAM.
                         </p>
 
                         <motion.div
-                            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+                            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 md:mb-20"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.3 }}
@@ -95,10 +95,10 @@ export default function HeroSection() {
                     </div>
                 }
             >
-                <div className="w-full h-full relative bg-black rounded-3xl overflow-hidden">
+                <div className="w-full h-full relative rounded-3xl overflow-hidden">
                     <Image
-                        src="/boat-mockup.png"
-                        alt="Website Mockup"
+                        src="/automationagent.jpeg"
+                        alt="AI Automation Agent"
                         fill
                         priority
                         className="object-contain"

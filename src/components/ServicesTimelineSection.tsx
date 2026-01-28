@@ -8,13 +8,13 @@ export default function ServicesTimelineSection() {
             title: "Web Development",
             content: (
                 <div>
-                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative aspect-video w-full">
+                    <div className="mb-8 overflow-hidden rounded-2xl border border-white/10 relative aspect-video w-full">
                         <Image
                             src="/boat-mockup.png"
                             alt="Web Development Mockup"
                             fill
                             loading="lazy"
-                            className="object-contain"
+                            className="object-contain rounded-2xl"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -28,7 +28,7 @@ export default function ServicesTimelineSection() {
                         </div>
                         <div className="bg-black/40 p-6 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
                             <h4 className="text-primary font-bold mb-2 text-lg">CMS Integration</h4>
-                            <p className="text-sm text-neutral-400 leading-relaxed">Easy content management with Sanity, Contentful, or Strapi.</p>
+                            <p className="text-sm text-neutral-400 leading-relaxed">Easy content management with Wordpress.</p>
                         </div>
                         <div className="bg-black/40 p-6 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
                             <h4 className="text-primary font-bold mb-2 text-lg">Performance First</h4>
@@ -42,13 +42,13 @@ export default function ServicesTimelineSection() {
             title: "Web Apps",
             content: (
                 <div>
-                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative aspect-video w-full">
+                    <div className="mb-8 overflow-hidden rounded-2xl border border-white/10 relative aspect-video w-full">
                         <Image
-                            src="/Dashboard.webp"
+                            src="/bookin.png"
                             alt="Web Apps Dashboard"
                             fill
                             loading="lazy"
-                            className="object-contain"
+                            className="object-contain rounded-2xl"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -76,13 +76,13 @@ export default function ServicesTimelineSection() {
             title: "Automations",
             content: (
                 <div>
-                    <div className="mb-8 overflow-hidden rounded-lg border border-white/10 relative aspect-video w-full">
+                    <div className="mb-8 overflow-hidden rounded-2xl border border-white/10 relative aspect-video w-full">
                         <Image
-                            src="/Automations.webp"
+                            src="/automationagent.jpeg"
                             alt="Automations Dashboard"
                             fill
                             loading="lazy"
-                            className="object-contain"
+                            className="object-contain rounded-2xl"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -92,7 +92,7 @@ export default function ServicesTimelineSection() {
                         </div>
                         <div className="bg-black/40 p-6 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
                             <h4 className="text-primary font-bold mb-2 text-lg">Workflow Automation</h4>
-                            <p className="text-sm text-neutral-400 leading-relaxed">Zapier, Make.com, and n8n workflows.</p>
+                            <p className="text-sm text-neutral-400 leading-relaxed">Zapier, Make.com, N8N or coded automations.</p>
                         </div>
                         <div className="bg-black/40 p-6 rounded-lg border border-white/5 hover:border-white/10 transition-colors">
                             <h4 className="text-primary font-bold mb-2 text-lg">CRM & Leads</h4>
@@ -108,7 +108,7 @@ export default function ServicesTimelineSection() {
         },
     ];
     return (
-        <div className="w-full bg-black">
+        <div className="w-full bg-black pt-24 md:pt-32" id="services">
             <Timeline data={data} />
         </div>
     );

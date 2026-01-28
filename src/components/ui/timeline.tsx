@@ -37,11 +37,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="w-full bg-black font-sans md:px-10"
             ref={containerRef}
         >
-            <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-                <h2 className="text-lg md:text-5xl mb-4 text-white max-w-4xl font-bold">
+            <div className="max-w-7xl mx-auto pt-8 pb-4 px-4 md:px-8 lg:px-10 text-center">
+                <h2 className="text-3xl md:text-5xl mb-4 text-white font-bold">
                     Our Services
                 </h2>
-                <p className="text-neutral-300 text-sm md:text-base max-w-sm">
+                <p className="text-neutral-300 text-sm md:text-base max-w-lg mx-auto">
                     Everything you need to accelerate your digital growth.
                 </p>
             </div>
@@ -50,7 +50,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 {data.map((item, index) => (
                     <div
                         key={index}
-                        className="flex justify-start pt-10 md:pt-40 md:gap-10"
+                        className={`flex justify-start md:gap-10 ${index === 0 ? 'pt-6 md:pt-12' : 'pt-10 md:pt-40'}`}
                     >
                         <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
                             <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black flex items-center justify-center border border-white/10">

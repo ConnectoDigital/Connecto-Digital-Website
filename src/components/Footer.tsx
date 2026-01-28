@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -7,9 +8,16 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                     {/* About Column */}
                     <div className="space-y-4">
-                        <h3 className="text-lg font-bold text-white">Connecto Digital</h3>
+                        <div className="relative h-[80px] w-[160px]">
+                            <Image
+                                src="/connecto-logo.png"
+                                alt="Connecto Digital"
+                                fill
+                                className="object-contain object-left"
+                            />
+                        </div>
                         <p className="text-sm text-white/60 leading-relaxed">
-                            We're a team of designers, engineers, and innovators building AI tools that empower anyone to turn imagination into stunning visuals—faster, smarter, and effortlessly.
+                            We're a team of designers, engineers, and innovators building AI tools that empower anyone to turn imagination into systems faster, smarter, and effortlessly.
                         </p>
                     </div>
 

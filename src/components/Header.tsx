@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 export default function Header() {
     return (
         <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
-            <div className="bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-6 py-3 flex items-center justify-between shadow-lg shadow-black/20">
-                <Link href="/" className="relative h-10 w-48 flex-shrink-0">
+            <div className="bg-black/80 backdrop-blur-md border border-white/10 rounded-full px-8 py-1 flex items-center justify-between shadow-lg shadow-black/20">
+                <Link href="/" className="relative h-[80px] w-[160px] flex-shrink-0">
                     <Image
-                        src="/logo.png"
+                        src="/connecto-logo.png"
                         alt="Connecto Digital"
                         fill
                         className="object-contain object-left"
@@ -20,13 +20,10 @@ export default function Header() {
                     <Link href="#services" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
                         Services
                     </Link>
-                    <Link href="#how-it-works" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                        How it Works
+                    <Link href="#how-we-work" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+                        How We Work
                     </Link>
-                    <Link href="#mission" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
-                        Mission
-                    </Link>
-                    <Link href="#projects" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
+                    <Link href="#portfolio" className="text-sm font-medium text-white/70 hover:text-white transition-colors">
                         Projects
                     </Link>
                 </nav>
