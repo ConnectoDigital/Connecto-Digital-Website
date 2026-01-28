@@ -98,7 +98,7 @@ export default function HeroSection() {
                 <div className="w-full h-full relative rounded-3xl overflow-hidden">
                     {/* Mobile image */}
                     <Image
-                        src="/crewai.png"
+                        src="/ai-dashboard.png"
                         alt="AI Automation Agent"
                         fill
                         priority
