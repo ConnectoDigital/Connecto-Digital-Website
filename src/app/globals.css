@@ -73,7 +73,7 @@
   --accent: #1A1A1A;
   --accent-foreground: #FFFFFF;
   
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: #ef4444;
   --destructive-foreground: #FFFFFF;
 
   --border: rgba(255, 255, 255, 0.1);
@@ -111,7 +111,7 @@
   --muted-foreground: #919191;
   --accent: #1A1A1A;
   --accent-foreground: #FFFFFF;
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: #ef4444;
   --destructive-foreground: #FFFFFF;
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
@@ -135,8 +135,10 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
+  html, body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
