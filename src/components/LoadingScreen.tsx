@@ -1,100 +1,86 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 interface LoadingScreenProps {
-    onComplete: () => void;
+  onComplete: () => void;
 }
 
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
-    const [isLoading, setIsLoading] = useState(true);
+  const [visible, setVisible] = useState(true);
 
-    // Simulate loading time (can be removed if we want purely interaction-based)
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
+  const handleEnter = useCallback(() => {
+    sessionStorage.setItem("site-entered", "true");
+    setVisible(false);
+    setTimeout(onComplete, 600);
+  }, [onComplete]);
 
-    return (
+  useEffect(() => {
+    // Skip if already entered this session
+    if (sessionStorage.getItem("site-entered")) {
+      setVisible(false);
+      onComplete();
+      return;
+    }
+
+    // Auto-enter after logo animation (2.5s)
+    const timer = setTimeout(handleEnter, 2500);
+    return () => clearTimeout(timer);
+  }, [onComplete, handleEnter]);
+
+  return (
+    <AnimatePresence>
+      {visible && (
         <motion.div
-            className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center p-4"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          className="fixed inset-0 z-[200] bg-black flex flex-col items-center justify-center"
         >
-            <div className="relative w-full max-w-md flex flex-col items-center">
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative w-[200px] h-[80px] md:w-[280px] md:h-[100px] mb-8"
+          >
+            <Image
+              src="/connecto-logo.png"
+              alt="Connecto Digital"
+              fill
+              className="object-contain"
+              priority
+            />
+          </motion.div>
 
-                {/* Logo Animation */}
-                <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="relative w-64 h-24 mb-12"
-                >
-                    <Image
-                        src="/logo.png"
-                        alt="Connecto Digital"
-                        fill
-                        className="object-contain"
-                        priority
-                    />
-                </motion.div>
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="font-mono-accent text-xs text-white/20 tracking-[0.2em]"
+          >
+            DIGITAL AGENCY // ARUBA
+          </motion.p>
 
-                {/* Slogan */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
-                        Building Tech That
-                    </h2>
-                    <h2 className="text-2xl md:text-4xl font-bold text-primary mt-2">
-                        Drive More Business
-                    </h2>
-                </motion.div>
-
-                {/* Enter Button */}
-                <AnimatePresence>
-                    {!isLoading && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            className="absolute bottom-[-80px]"
-                        >
-                            <Button
-                                onClick={onComplete}
-                                size="lg"
-                                className="bg-white text-black hover:bg-neutral-200 rounded-full px-8 text-lg font-medium transition-all hover:scale-105"
-                            >
-                                Enter Site <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                {/* Loading Indicator (if needed) */}
-                {isLoading && (
-                    <motion.div
-                        className="absolute bottom-[-80px]"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                    >
-                        <div className="flex gap-2">
-                            <span className="w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                            <span className="w-2 h-2 bg-primary rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                            <span className="w-2 h-2 bg-primary rounded-full animate-bounce"></span>
-                        </div>
-                    </motion.div>
-                )}
-            </div>
+          {/* Loading bar */}
+          <motion.div
+            className="mt-10 w-32 h-[2px] bg-white/5 overflow-hidden rounded-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            <motion.div
+              className="h-full bg-primary"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 1.8, delay: 0.5, ease: "easeInOut" }}
+            />
+          </motion.div>
         </motion.div>
-    );
+      )}
+    </AnimatePresence>
+  );
 }

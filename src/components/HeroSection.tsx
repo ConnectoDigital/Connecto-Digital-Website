@@ -1,118 +1,99 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 
-const headlines = [
-    {
-        id: 1,
-        content: (
-            <>
-                Web Design<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">That Drive Business</span>
-            </>
-        )
-    },
-    {
-        id: 2,
-        content: (
-            <>
-                Web Apps That<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-300 to-primary">Automate Process</span>
-            </>
-        )
-    },
-];
+import Link from "next/link";
+import { motion } from "framer-motion";
+import AsciiArt from "./AsciiArt";
 
 export default function HeroSection() {
-    const [index, setIndex] = useState(0);
+  return (
+    <section className="relative min-h-screen flex items-center bg-black overflow-hidden pt-28 md:pt-32">
+      {/* ASCII art background - right side on desktop, full background on mobile */}
+      <div className="absolute top-24 md:top-20 bottom-0 left-0 right-0 md:left-[45%] opacity-30 md:opacity-100">
+        <AsciiArt />
+      </div>
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIndex((prev) => (prev + 1) % headlines.length);
-        }, 4000);
-        return () => clearInterval(interval);
-    }, []);
+      {/* Gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-transparent md:via-black/70 pointer-events-none" />
 
-    const heroContent = (
-        <div className="flex flex-col items-center">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 md:mb-12 mt-8 md:mt-16 backdrop-blur-md"
+      <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 py-20 md:py-0">
+        <div className="max-w-3xl">
+          {/* Label */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-mono-accent text-xs md:text-sm text-white/40 tracking-[0.2em] mb-8"
+          >
+            DIGITAL AGENCY // ARUBA
+          </motion.p>
+
+          {/* Main headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-[0.95] tracking-tight mb-8"
+          >
+            Your
+            <br />
+            Development
+            <br />
+            <span className="text-primary">Partner.</span>
+          </motion.h1>
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-base md:text-lg text-white/50 max-w-xl leading-relaxed mb-12"
+          >
+            We build websites, web apps, and automations for businesses across
+            the Caribbean & LATAM. One partner, unlimited potential.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex items-center gap-6 flex-wrap"
+          >
+            <Link href="/get-started" className="flex items-center gap-3">
+              <span className="font-mono-accent text-sm border border-primary text-primary px-6 py-3 hover:bg-primary hover:text-white transition-all duration-300">
+                START YOUR PROJECT
+              </span>
+              <span className="w-11 h-11 border border-primary text-primary flex items-center justify-center text-lg hover:bg-primary hover:text-white transition-all duration-300">
+                +
+              </span>
+            </Link>
+
+            <Link
+              href="#portfolio"
+              className="font-mono-accent text-sm text-white/50 hover:text-white transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-white"
             >
-                <span className="flex h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_#FF541F]" />
-                <span className="text-sm font-medium text-white/80 tracking-wide">Trusted Partner</span>
-            </motion.div>
-
-            <div className="h-[160px] md:h-[280px] flex items-center justify-center mb-4 md:mb-8 relative w-full">
-                <AnimatePresence mode="wait">
-                    <motion.h1
-                        key={index}
-                        initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        exit={{ opacity: 0, y: -30, filter: "blur(10px)" }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="text-4xl md:text-8xl font-bold text-white tracking-tight leading-tight md:leading-none text-center absolute"
-                    >
-                        {headlines[index].content}
-                    </motion.h1>
-                </AnimatePresence>
-            </div>
-
-            <p className="max-w-2xl mx-auto text-base md:text-xl text-white/60 mb-6 md:mb-10 leading-relaxed px-4 md:px-0">
-                We're a team of experts who've been delivering digital products for companies in the Caribbean and LATAM.
-            </p>
-
-            <motion.div
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 md:mb-20"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-            >
-                <a href="https://wa.me/2975629582" target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 text-lg shadow-[0_0_20px_rgba(255,84,31,0.3)] hover:shadow-[0_0_30px_rgba(255,84,31,0.5)] transition-all">
-                        Start Project <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                </a>
-                <a href="#portfolio">
-                    <Button size="lg" variant="ghost" className="text-white hover:bg-white/5 rounded-full px-8 h-14 text-lg">
-                        View Portfolio
-                    </Button>
-                </a>
-            </motion.div>
+              View our work
+            </Link>
+          </motion.div>
         </div>
-    );
+      </div>
 
-    return (
-        <section className="relative bg-black overflow-hidden flex flex-col pt-28 md:pt-36">
-            {/* Background Gradients */}
-            <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none" />
-
-            {/* Mobile: no tablet, just hero content */}
-            <div className="md:hidden px-4 pb-16">
-                {heroContent}
-            </div>
-
-            {/* Desktop: full ContainerScroll with tablet */}
-            <div className="hidden md:block">
-                <ContainerScroll titleComponent={heroContent}>
-                    <div className="w-full h-full relative rounded-3xl overflow-hidden">
-                        <Image
-                            src="/automationagent.jpeg"
-                            alt="AI Automation Agent"
-                            fill
-                            priority
-                            className="object-contain"
-                        />
-                    </div>
-                </ContainerScroll>
-            </div>
-        </section>
-    );
+      {/* Bottom scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="font-mono-accent text-[10px] text-white/20 tracking-widest">
+          SCROLL
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="w-[1px] h-8 bg-gradient-to-b from-white/30 to-transparent"
+        />
+      </motion.div>
+    </section>
+  );
 }
