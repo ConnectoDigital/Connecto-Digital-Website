@@ -1,0 +1,153 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── User Profile (roles for Neon Auth users) ────────
+
+model UserProfile {
+  id        String   @id @default(cuid())
+  userId    String   @unique // matches Neon Auth user.id
+  role      Role     @default(CLIENT)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ─── Subscriptions ──────────────────────────────────
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String             @unique
+  stripeCustomerId     String?            @unique
+  stripeSubscriptionId String?            @unique
+  stripePriceId        String?
+  plan                 Plan               @default(STARTER)
+  status               SubscriptionStatus @default(ACTIVE)
+  currentPeriodStart   DateTime?
+  currentPeriodEnd     DateTime?
+  cancelAtPeriodEnd    Boolean            @default(false)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+}
+
+// ─── Projects ───────────────────────────────────────
+
+model Project {
+  id          String        @id @default(cuid())
+  name        String
+  description String?
+  status      ProjectStatus @default(ACTIVE)
+  userId      String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  requests Request[]
+  files    File[]
+}
+
+model Request {
+  id          String        @id @default(cuid())
+  title       String
+  description String
+  priority    Priority      @default(NORMAL)
+  status      RequestStatus @default(PENDING)
+  projectId   String
+  userId      String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  project  Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  messages Message[]
+  files    File[]
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  content   String
+  requestId String
+  userId    String
+  isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  request Request @relation(fields: [requestId], references: [id], onDelete: Cascade)
+}
+
+model File {
+  id        String   @id @default(cuid())
+  name      String
+  url       String
+  size      Int
+  type      String
+  projectId String?
+  requestId String?
+  createdAt DateTime @default(now())
+
+  project Project? @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  request Request? @relation(fields: [requestId], references: [id], onDelete: SetNull)
+}
+
+// ─── Onboarding ─────────────────────────────────────
+
+model Onboarding {
+  id            String  @id @default(cuid())
+  userId        String  @unique
+  step          Int     @default(1)
+  completed     Boolean @default(false)
+  companyName   String?
+  website       String?
+  industry      String?
+  brandColors   String?
+  logoUrl       String?
+  projectGoals  String?
+  techStack     String?
+  timeline      String?
+  communication String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ─── Enums ──────────────────────────────────────────
+
+enum Role {
+  CLIENT
+  ADMIN
+}
+
+enum Plan {
+  STARTER
+  GROWTH
+  EMBEDDED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAUSED
+  CANCELLED
+  PAST_DUE
+}
+
+enum ProjectStatus {
+  ACTIVE
+  COMPLETED
+  ON_HOLD
+  ARCHIVED
+}
+
+enum RequestStatus {
+  PENDING
+  IN_PROGRESS
+  IN_REVIEW
+  COMPLETED
+  CANCELLED
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}

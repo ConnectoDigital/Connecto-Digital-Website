@@ -1,53 +1,91 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Volume2, VolumeX } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
-interface BackgroundMusicProps {
-    isPlaying: boolean;
-}
+const YOUTUBE_VIDEO_ID = "NrJbFA4KsaA";
 
-export default function BackgroundMusic({ isPlaying }: BackgroundMusicProps) {
-    const audioRef = useRef<HTMLAudioElement | null>(null);
-    const [isMuted, setIsMuted] = useState(false);
+export default function BackgroundMusic() {
+  const [playing, setPlaying] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
-    useEffect(() => {
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.play().catch((error) => {
-                    console.log("Audio playback failed:", error);
-                });
-            } else {
-                audioRef.current.pause();
-            }
-        }
-    }, [isPlaying]);
+  useEffect(() => {
+    setLoaded(true);
 
-    const toggleMute = () => {
-        if (audioRef.current) {
-            audioRef.current.muted = !isMuted;
-            setIsMuted(!isMuted);
-        }
-    };
+    const timer = setTimeout(() => {
+      const iframe = iframeRef.current;
+      if (iframe?.contentWindow) {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: "command", func: "playVideo" }),
+          "*"
+        );
+        setPlaying(true);
+      }
+    }, 1500);
 
-    return (
-        <div className="fixed bottom-4 right-4 z-50">
-            <audio ref={audioRef} loop>
-                <source src="/background-music.mp3" type="audio/mpeg" />
-                Your browser does not support the audio element.
-            </audio>
+    return () => clearTimeout(timer);
+  }, []);
 
-            {isPlaying && (
-                <Button
-                    variant="outline"
-                    size="icon"
-                    className="rounded-full bg-black/50 backdrop-blur-md border-white/10 hover:bg-black/70 text-white"
-                    onClick={toggleMute}
-                >
-                    {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-                </Button>
-            )}
-        </div>
-    );
+  const toggle = () => {
+    const iframe = iframeRef.current;
+    if (!iframe?.contentWindow) return;
+
+    if (playing) {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: "pauseVideo" }),
+        "*"
+      );
+    } else {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: "playVideo" }),
+        "*"
+      );
+    }
+    setPlaying(!playing);
+  };
+
+  return (
+    <>
+      {loaded && (
+        <iframe
+          ref={iframeRef}
+          src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?enablejsapi=1&autoplay=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}`}
+          className="hidden"
+          allow="autoplay"
+          title="Background music"
+        />
+      )}
+
+      <button
+        onClick={toggle}
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 border border-white/10 bg-black/80 backdrop-blur-md text-white flex items-center justify-center hover:border-primary/50 hover:scale-105 transition-all"
+        aria-label={playing ? "Pause music" : "Play music"}
+      >
+        {playing ? (
+          <div className="flex items-end gap-[3px] h-4">
+            {[0, 0.2, 0.1].map((d, i) => (
+              <div
+                key={i}
+                className="w-[3px] bg-primary rounded-full"
+                style={{
+                  animation: "equalizer 0.8s ease-in-out infinite alternate",
+                  animationDelay: `${d}s`,
+                  height: "60%",
+                }}
+              />
+            ))}
+          </div>
+        ) : (
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M8 5.14v14l11-7-11-7z" />
+          </svg>
+        )}
+      </button>
+    </>
+  );
 }

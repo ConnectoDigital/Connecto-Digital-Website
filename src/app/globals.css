@@ -8,8 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -50,43 +50,42 @@
 
 :root {
   --radius: 0.625rem;
-  
-  /* Dark mode by default as per design */
-  --background: #010101;
+
+  --background: #000000;
   --foreground: #FFFFFF;
-  
+
   --card: #0A0A0A;
   --card-foreground: #FFFFFF;
-  
+
   --popover: #0A0A0A;
   --popover-foreground: #FFFFFF;
-  
+
   --primary: #FF541F;
   --primary-foreground: #FFFFFF;
-  
+
   --secondary: #1A1A1A;
   --secondary-foreground: #D9D9D9;
-  
+
   --muted: #1A1A1A;
   --muted-foreground: #919191;
-  
+
   --accent: #1A1A1A;
   --accent-foreground: #FFFFFF;
-  
+
   --destructive: #ef4444;
   --destructive-foreground: #FFFFFF;
 
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
   --ring: #FF541F;
-  
+
   --chart-1: #FF541F;
   --chart-2: #FF7B52;
   --chart-3: #FF9F7F;
   --chart-4: #FFC2AC;
   --chart-5: #FFE5DB;
-  
-  --sidebar: #010101;
+
+  --sidebar: #000000;
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #FF541F;
   --sidebar-primary-foreground: #FFFFFF;
@@ -97,7 +96,7 @@
 }
 
 .dark {
-  --background: #010101;
+  --background: #000000;
   --foreground: #FFFFFF;
   --card: #0A0A0A;
   --card-foreground: #FFFFFF;
@@ -121,7 +120,7 @@
   --chart-3: #FF9F7F;
   --chart-4: #FFC2AC;
   --chart-5: #FFE5DB;
-  --sidebar: #010101;
+  --sidebar: #000000;
   --sidebar-foreground: #FFFFFF;
   --sidebar-primary: #FF541F;
   --sidebar-primary-foreground: #FFFFFF;
@@ -142,11 +141,138 @@
   }
 }
 
-/* Hide scrollbar for carousel */
+/* Mono accent utility */
+.font-mono-accent {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hide scrollbar */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Equalizer animation for music player */
+@keyframes equalizer {
+  0% { height: 30%; }
+  100% { height: 100%; }
+}
+
+/* ASCII art glow */
+@keyframes ascii-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* Pulse for map HQ marker */
+@keyframes hq-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Dashboard light theme overrides */
+.dashboard-light {
+  color: #111;
+}
+.dashboard-light .text-white {
+  color: #111 !important;
+}
+.dashboard-light .text-white\/80 {
+  color: rgba(0,0,0,0.8) !important;
+}
+.dashboard-light .text-white\/70 {
+  color: rgba(0,0,0,0.7) !important;
+}
+.dashboard-light .text-white\/60 {
+  color: rgba(0,0,0,0.55) !important;
+}
+.dashboard-light .text-white\/50 {
+  color: rgba(0,0,0,0.5) !important;
+}
+.dashboard-light .text-white\/40 {
+  color: rgba(0,0,0,0.4) !important;
+}
+.dashboard-light .text-white\/30 {
+  color: rgba(0,0,0,0.3) !important;
+}
+.dashboard-light .text-white\/20 {
+  color: rgba(0,0,0,0.18) !important;
+}
+.dashboard-light .text-white\/10 {
+  color: rgba(0,0,0,0.08) !important;
+}
+.dashboard-light .border-white\/\[0\.06\],
+.dashboard-light .border-white\/\[0\.04\] {
+  border-color: rgba(0,0,0,0.08) !important;
+}
+.dashboard-light .bg-white\/\[0\.02\],
+.dashboard-light .bg-white\/\[0\.01\] {
+  background-color: rgba(255,255,255,0.7) !important;
+}
+.dashboard-light .bg-white\/\[0\.03\] {
+  background-color: rgba(0,0,0,0.03) !important;
+}
+.dashboard-light .bg-white\/\[0\.04\] {
+  background-color: rgba(0,0,0,0.04) !important;
+}
+.dashboard-light .bg-white\/5 {
+  background-color: rgba(0,0,0,0.04) !important;
+}
+.dashboard-light .border-dashed {
+  border-color: rgba(0,0,0,0.12) !important;
+}
+.dashboard-light .hover\:bg-white\/\[0\.03\]:hover {
+  background-color: rgba(0,0,0,0.04) !important;
+}
+.dashboard-light .hover\:text-white:hover {
+  color: #000 !important;
+}
+.dashboard-light .hover\:bg-white\/5:hover {
+  background-color: rgba(0,0,0,0.05) !important;
+}
+/* Selects, inputs, hardcoded bg overrides */
+.dashboard-light select,
+.dashboard-light .bg-\[\#0a0a0a\] {
+  background-color: #fff !important;
+  color: #333 !important;
+  border-color: rgba(0,0,0,0.12) !important;
+}
+.dashboard-light select option {
+  background: #fff !important;
+  color: #333 !important;
+}
+.dashboard-light input {
+  background-color: #fff !important;
+  color: #111 !important;
+  border-color: rgba(0,0,0,0.1) !important;
+}
+.dashboard-light input::placeholder {
+  color: rgba(0,0,0,0.35) !important;
+}
+.dashboard-light .bg-\[\#FF541F\]\/5,
+.dashboard-light .bg-\[\#FF541F\]\/10 {
+  background-color: rgba(255,84,31,0.08) !important;
+}
+.dashboard-light .divide-white\/\[0\.04\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(0,0,0,0.06) !important;
+}
+.dashboard-light .animate-pulse {
+  background-color: rgba(0,0,0,0.06) !important;
+}
+.dashboard-light .text-\[\#FF541F\] {
+  color: #FF541F !important;
+}
+
+/* Orange map — dark tiles with orange-tinted land */
+.orange-map,
+.orange-map .leaflet-container {
+  background: #000 !important;
+}
+.orange-map .leaflet-tile {
+  filter: sepia(0.4) hue-rotate(-10deg) saturate(1.5) brightness(0.9) contrast(1.1);
 }
