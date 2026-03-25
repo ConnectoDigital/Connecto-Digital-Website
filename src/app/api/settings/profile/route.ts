@@ -9,12 +9,14 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const [onboarding, subscription] = await Promise.all([
+    const [profile, onboarding, subscription] = await Promise.all([
+      prisma.userProfile.findUnique({ where: { userId: session.user.id } }),
       prisma.onboarding.findUnique({ where: { userId: session.user.id } }),
       prisma.subscription.findUnique({ where: { userId: session.user.id } }),
     ]);
 
     return NextResponse.json({
+      role: profile?.role ?? "CLIENT",
       onboarding,
       subscription: subscription
         ? {

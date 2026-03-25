@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,6 +18,7 @@ import {
   Sun,
   Moon,
   Rocket,
+  Shield,
 } from "lucide-react";
 import { DashboardThemeProvider, useDashboardTheme } from "@/lib/theme-context";
 
@@ -43,11 +44,21 @@ function getPageTitle(pathname: string): string {
 
 function DashboardInner({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const pathname = usePathname();
   const { data: session } = authClient.useSession();
   const { theme, toggle } = useDashboardTheme();
 
   const user = session?.user;
+
+  useEffect(() => {
+    if (user?.id) {
+      fetch("/api/settings/profile")
+        .then((r) => r.ok ? r.json() : null)
+        .then((data) => { if (data?.role === "ADMIN") setIsAdmin(true); })
+        .catch(() => {});
+    }
+  }, [user?.id]);
   const pageTitle = getPageTitle(pathname);
 
   const isDark = theme === "dark";
@@ -138,6 +149,15 @@ function DashboardInner({ children }: { children: React.ReactNode }) {
               PRO
             </span>
           </div>
+          {isAdmin && (
+            <Link
+              href="/admin"
+              className="flex w-full items-center gap-2 px-3 py-2 font-mono-accent text-[11px] tracking-wider text-white/30 transition-colors hover:bg-white/[0.03] hover:text-white/60"
+            >
+              <Shield size={14} strokeWidth={1.8} />
+              ADMIN PANEL
+            </Link>
+          )}
           <button
             onClick={() => authClient.signOut().then(() => window.location.href = "/")}
             className="flex w-full items-center gap-2 px-3 py-2 font-mono-accent text-[11px] tracking-wider text-white/30 transition-colors hover:bg-white/[0.03] hover:text-white/60"

@@ -18,6 +18,7 @@ import {
   UserCog,
   ListTodo,
   ShoppingBag,
+  ArrowRightLeft,
 } from "lucide-react";
 import { DashboardThemeProvider, useDashboardTheme } from "@/lib/theme-context";
 
@@ -105,6 +106,13 @@ function AdminInner({ children }: { children: React.ReactNode }) {
               </p>
             </div>
           </div>
+          <Link
+            href="/dashboard"
+            className="flex w-full items-center gap-3 px-3 py-2 font-mono-accent text-[11px] tracking-wider text-white/30 transition-colors hover:bg-white/[0.04] hover:text-white/60"
+          >
+            <ArrowRightLeft size={14} />
+            CLIENT VIEW
+          </Link>
           <button
             onClick={() => authClient.signOut().then(() => window.location.href = "/")}
             className="flex w-full items-center gap-3 px-3 py-2 font-mono-accent text-[11px] tracking-wider text-white/30 transition-colors hover:bg-white/[0.04] hover:text-white/60"
